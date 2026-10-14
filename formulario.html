@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Implementación de Formularios Web</title>
+    <style>
+        /*Estilos generales y caja responsive */
+        * {
+            box-sizing: border-box;
+        }
+        body{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f9;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        header{
+            text-align: center;
+            border-bottom: 3px solid #004085;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+        header h1{
+            color: #004085;
+            margin: 0 0 5px 0;
+            font-size: 1.8rem;
+        }
+        header p {
+            margin: 0;
+            color: #6c757d;
+            font-size: 0.95rem;
+        }
+        /* Estructura del formulario*/
+        fieldset{
+            border: 1px solid #ced4da;
+            border-radius: 6px;
+            padding: 20px;
+            margin-bottom: 25px;
+            background-color: #fafafa;
+        }
+        legend{
+            font-weight: bold;
+            color: #004085;
+            padding: 0 10px;
+            font-size: 1.1rem;
+        }
+        .form-group {
+            margin-bottom: 18px;
+        }
+        .form-group-inline {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+          .form-group-inline > div {
+            flex: 1;
+            min-width: 220px;
+        }
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .required::after {
+            content: " *";
+            color: #dc3545;
+        }
+        /* Estilos de entradas de texto, select y textarea */
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="tel"],
+        input[type="date"],
+        input[type="number"],
+        input[type="file"],
+        select,
+        textarea{
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #cccccc;
+        }
+
+        /* Estados intereactivos para mejor UX */
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #80bdff;
+            box-shadow: 0 0 0 0.2rem rgba(0,123,255,0.25);
+        }
+
+        /* Opciones de Radio y Checkbox*/
+
+        .radio-group, .checkbox-group {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            margin-top: 5px;
+
+        }
+        .radio-group label, .checkbox-group label {
+            font-weight: normal;
+            cursor: pointer;
+        }
+        /* Botones de Acción */
+        .button-group {
+            display: flex;
+            justify-content: flex-end;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .btn {
+            padding: 12px 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .btn-submit {
+            background-color: #004085;
+            color: #ffffff;
+        }
+          .btn-submit:hover {
+            background-color: #002752;           
+        }
+        .btn-reset {
+            background-color: #6c757d;
+            color: #ffffff;
+        }
+        .btn-reset:hover {
+            background-color: #545b62;
+        }
+
+        /* Adaptabilidad a teléfonos Móviles*/
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+            .button-group{
+                flex-direction: column;
+            }
+            .btn{
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>IESP "REPÚBLICA FEDERAL DE ALEMANIA"</h1>
+            <p>Ficha Registral de Estudiantes - Fundamentos de Desarrollo Web</p>
+        </header>
+
+        <form action="procesar registro.php" method="POST" enctype="multipart/form-data" autocomplete="on">
+            <!--SECCIÓN 1: DATOS PERSONALES-->
+            <fieldset>
+                <legend>1. Datos Personales del Postulante</legend>
+
+                <div class="form-group-inline">
+                    <div class="form-group">
+                        <label for="nombres" class="required">Nombres Completos:</label>
+                        <input type="text" id="nombres" name="nombres" placeholder="Ej. Juan Ricardo" required autofocus>
+                    </div>
+                    <div class="form-group">
+                        <label for="apellidos" class="required">Apellidos Completos</label>
+                        <input type="text" id="apellidos" name="apellidos" placeholder="Ej. Mejía Jiménez" required>
+                    </div>
+                </div>
+                <div class="form-group-inline">
+                    <div class="form-group">
+                        <label for="dni" class="required">DNI / Documento:</label>
+                        <input type="text" id="dni" name="dni" placeholder="8 dígitos" pattern="[0-9]{8}" maxlength="8" required title="Ingrese exactamente 8 dígitos enteros">
+                    </div>
+                    <div class="form-group">
+                        <label for="fecha_nac" class="required">Fecha de Nacimiento:</label>
+                        <input type="date" id="fecha_nac" name="fecha_nac" min="1950-01-01" max="2010-12-31" required>
+                    </div>
+                </div>
+
+                <div class="form-group-inline">
+                    <div class="form-group">
+                        <label for="correo" class="required">Correo Electrónico</label>
+                        <input type="email" id="correo" name="correo" placeholder="ejemplo@dominio.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Teléfono / Celular:</label>
+                        <input type="tel" id="telefono" name="telefono" placeholder="943334313" pattern="[0-9]{9}" maxlength="9">
+                    </div>
+                </div>
+            </fieldset>
+    <!--SECCIÓN 2: INFORMACIÓN ACADÉMICA Y PREFERENCIAS-->
+    <fieldset>
+        <legend>2. Información Académica</legend>
+        <div class="form-group">
+            <label for="programa" class="required">Programa de Estudios:</label>
+            <select name="programa" id="programa" required>
+                <option value="" disabled selected>-- Seleccione una especialidad --</option>
+                <optgroup label="Tecnologías de la Información">
+                    <option value="ATI">Arquitectura de Plataformas y Servicios de TI</option>
+                    <option value="DS">Computación e Informática</option>
+                </optgroup>
+                <optgroup label="Otras Carreras Técnicas">
+                    <option value="ADM">Administración de empresas</option>
+                    <option value="CONT">Contabilidad</option>
+                    <option value="ETE">Enfermería</option>
+                    <option value="ELI">Electricidad Industrial</option>
+                    <option value="ELO">Electrónico Industrial</option>
+                    <option value="MEC">Mecatrónica Automotriz</option>
+                    <option value="MEP">Mecánica de Producción</option>             
+                </optgroup>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="distrito">Distrito de Procedencia (Autocompletado):</label>
+            <input type="text" id="distrito" name="distrito" list="distritos-chilcayo" placeholder="Escriba para buscar su distrito...">
+            <datalist id="distrito-chiclato">
+                <option value="Chiclayo">
+                <option value="José Leonardo Ortiz">
+                <option value="La Victoria">
+                <option value="Pimentel">
+                <option value="Monsefú">
+                <option value="Cayaltí">
+                <option value="Oyotún">
+                <option value="Zaña">
+                <option value="Reque">
+                <option value="Tumán">
+                <option value="Pomalca">                                                
+            </datalist>
+        </div>
+        <div class="form-group">
+            <label class="required">Turno de Preferencia:</label>
+            <div class="radio-group">
+                <label><input type="radio" name="turno" value="mañana" required> Mañana</label>
+                <label><input type="radio" name="turno" value="mañana" required> Noche</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Áreas de Interés Técnico (Selección múltiple):</label>
+            <div class="checkbox-group">
+                <label><input type="checkbox" name="intereses[]" value="frontend">Desarrollo Frontend</label>
+                <label><input type="checkbox" name="intereses[]" value="backend">Programación Backend</label>
+                <label><input type="checkbox" name="intereses[]" value="redes">Redes y Servidores</label>
+            </div>
+        </div>
+    </fieldset>
+    <!--SECCIÓN 3: DOCUMENTACIÓN Y COMENTARIO-->
+    <fieldset>
+        <legend>3. Documentación y Mensaje</legend>
+
+        <div class="form-group">
+            <label for="documento_cv">Adjuntar Ficha de Matrícula o DNI (PDF):</label>
+            <input type="file" id="documento_cv" name="documento_cv" accept=".pdf">
+        </div>
+
+        <div class="form-group">
+            <label for="observaciones">Observaciones o Comentarios Adicionales</label>
+            <textarea name="observaciones" id="observaciones" rows="4" placeholder="Ingrese alguna especificación o consulta para la secretará académica..."></textarea>
+        </div>
+    </fieldset>
+
+    <!--BOTONES DE ACCIÓN-->
+    <div class="button-group">
+        <button type="reset" class="btn btn-reset">Restablecer Campos</button>
+        <button type="submit" class="btn btn-submit">Enviar Formulario</button>
+    </div>
+
+    </form>
+    </div>
+       <a href="index.html">
+        <i class="fa-solid fa-house"></i> Volver al inicio
+    </a>
+</body>
+</html>

@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mi Blog Personal - Juan Ricardo Mejía Jiménez</title>
+
+    <!-- Iconos -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #334155;
+            line-height: 1.7;
+            background: #f4f7f6;
+        }
+
+        /* CABECERA */
+        header {
+            background: linear-gradient(135deg, #064e3b, #047857);
+            color: white;
+            padding: 25px 8%;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            box-shadow: 0 4px 12px #00000020;
+        }
+
+        header i {
+            font-size: 38px;
+            color: #86efac;
+        }
+
+        header h1 {
+            font-size: 27px;
+        }
+
+        header p {
+            color: #d1fae5;
+            font-size: 14px;
+        }
+
+        /* PRESENTACIÓN */
+        .presentacion {
+            display: flex;
+            align-items: center;
+            gap: 45px;
+            padding: 65px 8%;
+            background: linear-gradient(120deg, #ffffff, #ecfdf5);
+        }
+
+        .foto-perfil {
+            min-width: 220px;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            border: 6px solid #16a34a;
+            background: #d1fae5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 25px #064e3b20;
+        }
+
+        .foto-perfil i {
+            font-size: 100px;
+            color: #047857;
+        }
+
+        .presentacion h2 {
+            font-size: 38px;
+            color: #0f172a;
+            margin-bottom: 5px;
+        }
+
+        .presentacion h3 {
+            color: #047857;
+            font-size: 20px;
+            margin-bottom: 18px;
+        }
+
+        .presentacion p {
+            font-size: 17px;
+            max-width: 750px;
+        }
+
+        .linea {
+            width: 65px;
+            height: 5px;
+            background: #22c55e;
+            border-radius: 10px;
+            margin: 18px 0;
+        }
+
+        /* CONTENIDO */
+        .contenido {
+            padding: 45px 8%;
+        }
+
+        .titulo-seccion {
+            text-align: center;
+            color: #064e3b;
+            font-size: 29px;
+            margin-bottom: 30px;
+        }
+
+        .tarjetas {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .tarjeta {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 18px #0000000d;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .tarjeta:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px #064e3b20;
+        }
+
+        .tarjeta i {
+            font-size: 35px;
+            color: #059669;
+            margin-bottom: 15px;
+        }
+
+        .tarjeta h3 {
+            color: #0f172a;
+            font-size: 21px;
+            margin-bottom: 12px;
+        }
+
+        .tarjeta p {
+            font-size: 15px;
+        }
+
+        /* FRASE PERSONAL */
+        .frase {
+            margin-top: 40px;
+            padding: 30px;
+            background: linear-gradient(100deg, #d1fae5, #f0fdf4);
+            border-left: 6px solid #059669;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .frase i {
+            font-size: 30px;
+            color: #047857;
+            margin-bottom: 10px;
+        }
+
+        .frase p {
+            font-size: 23px;
+            font-weight: bold;
+            font-style: italic;
+            color: #064e3b;
+        }
+
+        .frase span {
+            display: block;
+            margin-top: 10px;
+            font-size: 14px;
+            letter-spacing: 2px;
+        }
+
+        /* PIE DE PÁGINA */
+        footer {
+            background: #064e3b;
+            color: white;
+            text-align: center;
+            padding: 25px 15px;
+        }
+
+        footer .redes {
+            margin-bottom: 10px;
+        }
+
+        footer .redes i {
+            font-size: 24px;
+            margin: 0 10px;
+            color: #a7f3d0;
+        }
+
+        footer p {
+            font-size: 14px;
+        }
+
+        /* DISEÑO RESPONSIVO */
+        @media (max-width: 900px) {
+            .tarjetas {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .presentacion {
+                gap: 25px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 20px;
+            }
+
+            header h1 {
+                font-size: 22px;
+            }
+
+            .presentacion {
+                flex-direction: column;
+                text-align: center;
+                padding: 40px 20px;
+            }
+
+            .foto-perfil {
+                min-width: 0;
+                width: 190px;
+                height: 190px;
+            }
+
+            .foto-perfil i {
+                font-size: 75px;
+            }
+
+            .presentacion h2 {
+                font-size: 29px;
+            }
+
+            .presentacion h3 {
+                font-size: 17px;
+            }
+
+            .presentacion p {
+                font-size: 15px;
+            }
+
+            .linea {
+                margin: 18px auto;
+            }
+
+            .contenido {
+                padding: 35px 20px;
+            }
+
+            .tarjetas {
+                grid-template-columns: 1fr;
+            }
+
+            .titulo-seccion {
+                font-size: 25px;
+            }
+
+            .frase p {
+                font-size: 19px;
+            }
+        }
+                a {
+            color: #16a34a;
+            text-decoration: none;
+            }
+
+            a:hover {
+                color: #064e3b;
+            }
+    </style>
+</head>
+
+<body>
+
+    <!-- CABECERA -->
+    <header>
+        <i class="fas fa-laptop-code"></i>
+
+        <div>
+            <h1>Mi Blog Personal</h1>
+            <p>Disciplina · Seguridad · Tecnología</p>
+        </div>
+    </header>
+
+    <!-- PRESENTACIÓN PROFESIONAL -->
+    <section class="presentacion">
+
+        <div class="foto-perfil">
+            <i class="fas fa-user-tie"></i>
+        </div>
+
+        <div>
+            <p style="color: #047857; font-weight: bold;">
+                MI PERFIL PROFESIONAL
+            </p>
+
+            <h2>Resumen Profesional</h2>
+
+            <h3>
+                Disciplina en la seguridad · Compromiso con la tecnología
+            </h3>
+
+            <div class="linea"></div>
+
+            <p>
+                Soy Licenciado FAP y trabajo como Agente de Seguridad,
+                realizando servicios de vigilancia. Asimismo, soy
+                estudiante técnico de Tecnologías de la Información (TI)
+                en el Instituto de Educación Superior Público
+                República Federal de Alemania, donde fortalezco mis
+                conocimientos en programación, desarrollo web,
+                bases de datos y soporte técnico.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- ÁREAS PROFESIONALES -->
+    <main class="contenido">
+
+        <h2 class="titulo-seccion">Mi Perfil y Desarrollo Profesional</h2>
+
+        <div class="tarjetas">
+
+            <article class="tarjeta">
+                <i class="fas fa-shield-halved"></i>
+
+                <h3>Seguridad</h3>
+
+                <p>
+                    Licenciado FAP y Agente de Seguridad con experiencia
+                    en servicios de vigilancia, responsabilidad,
+                    disciplina y compromiso con el cumplimiento
+                    de mis funciones.
+                </p>
+
+                <div class="linea"></div>
+            </article>
+
+            <article class="tarjeta">
+                <i class="fas fa-laptop-code"></i>
+
+                <h3>Tecnología</h3>
+
+                <p>
+                    Estudiante de TI interesado en programación con
+                    Python y Java, desarrollo de páginas web con
+                    HTML y CSS, y gestión de bases de datos mediante SQL.
+                </p>
+
+                <div class="linea"></div>
+            </article>
+
+            <article class="tarjeta">
+                <i class="fas fa-graduation-cap"></i>
+
+                <h3>Formación</h3>
+
+                <p>
+                    Estudiante de Arquitectura de Plataformas y
+                    Servicios de Tecnologías de Información en el
+                    Instituto RFA de Chiclayo, comprometido con mi
+                    crecimiento académico y profesional.
+                </p>
+
+                <div class="linea"></div>
+            </article>
+
+            <article class="tarjeta">
+                <i class="fas fa-screwdriver-wrench"></i>
+
+                <h3>Soporte Técnico</h3>
+
+                <p>
+                    Interesado en el mantenimiento de computadoras,
+                    instalación de sistemas operativos, configuración
+                    de programas y solución de problemas informáticos.
+                </p>
+
+                <div class="linea"></div>
+            </article>
+
+            <article class="tarjeta">
+                <i class="fas fa-database"></i>
+
+                <h3>Bases de Datos</h3>
+
+                <p>
+                    Aprendizaje de SQL, creación de tablas,
+                    relaciones entre datos, consultas y administración
+                    de usuarios y permisos.
+                </p>
+
+                <div class="linea"></div>
+            </article>
+
+            <article class="tarjeta">
+                <i class="fas fa-bullseye"></i>
+
+                <h3>Objetivo Profesional</h3>
+
+                <p>
+                    Culminar mi formación técnica, realizar prácticas
+                    preprofesionales y adquirir experiencia en soporte
+                    técnico y otras áreas de las Tecnologías
+                    de Información.
+                </p>
+
+                <div class="linea"></div>
+            </article>
+
+        </div>
+
+        <!-- FRASE PERSONAL -->
+        <section class="frase">
+            <i class="fas fa-bullseye"></i>
+
+            <p>
+                "Seguridad hoy, tecnología mañana."
+            </p>
+
+            <span>JUAN RICARDO MEJÍA JIMÉNEZ</span>
+        </section>
+
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer>
+
+        <div class="redes">
+            <i class="fab fa-facebook"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-linkedin"></i>
+        </div>
+
+        <p>
+            © 2026 Juan Ricardo Mejía Jiménez
+        </p>
+
+        <p>
+            Instituto RFA · Chiclayo - Perú
+        </p>
+
+        <p>
+            Gracias por visitar mi blog personal.
+        </p>
+    <a href="index.html">
+        <i class="fa-solid fa-house"></i> Volver al inicio
+    </a>
+    </footer>
+
+</body>
+</html>

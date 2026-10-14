@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto</title>
+
+<style>
+    body {
+        font-family: Arial,sans-serif;
+        max-width: 700px;
+        margin: 40px auto;
+        padding: 20px;
+    }
+    h2 {
+        text-align: center;
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+    }
+    input,textarea{
+        padding: 12px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    button:hover{
+        background: #005ea6;
+    }
+</style>
+</head>
+<body>
+    <h2>Contáctame</h2>
+    <form action="https://api.web3forms.com/submit" method="POST">
+
+    <input type="hidden" name="access_key" value="28c36144-ff4f-412c-b158-ee7b6f992260">
+    <input type="hidden" name="subject" value="Nuevo mensaje desde la página de Juan">
+
+    <input type="text" name="nombre" placeholder="Tu nombre" required>
+
+    <input type="email" name="email" placeholder="Tu correo electrónico" required>
+    
+     <textarea name="mensaje" rows="6" placeholder="Escribe tu mensaje" required></textarea>
+
+     <button  type="submit">Enviar mensaje</button>
+    </form>
+    
+</body>
+</html>

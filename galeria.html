@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería Personal - Juan Ricardo Mejía Jiménez</title>
+    <style>*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f4f7fb;
+    color:#333;
+}/* ===== MENU ===== */nav{
+    background:#003366;
+    padding:15px;
+    text-align:center;
+    position:sticky;
+    top:0;
+}nav a{
+    color:white;
+    text-decoration:none;
+    margin:10px;
+    font-weight:bold;
+    transition:0.3s;
+}nav a:hover{
+    color:#ffd700;
+}/* ===== ENCABEZADO ===== */header{
+    text-align:center;
+    padding:30px;
+}header h1,h2,h3{
+    color:#003366;
+    margin-bottom:10px;
+}header p{
+    color:#555;
+    margin-bottom:20px;
+}
+
+.portada img{
+    width:100%;
+    max-height:400px;
+    object-fit:cover;
+    border-radius:15px;
+    box-shadow:0px 5px 15px rgba(0,0,0,.3);
+
+    /* ANIMACIÓN DE LA PORTADA */
+    transition:transform 0.4s ease;
+}
+
+.portada img:hover{
+    transform:scale(1.03);
+}/* ===== GALERIA ===== */section{
+    padding:30px;
+}section h2,h3{
+    text-align:center;
+    color:#003366;
+    margin-bottom:20px;
+}/* CONTENEDOR DE LAS IMÁGENES */
+
+.galeria{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:15px;
+}/* IMÁGENES DE LA GALERÍA */
+
+.galeria img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    border-radius:12px;
+
+    /* ANIMACIÓN */
+    transition:transform 0.4s ease, box-shadow 0.4s ease;
+}/* ZOOM SUAVE AL PASAR EL MOUSE */
+
+.galeria img:hover{
+    transform:scale(1.05);
+    box-shadow:0px 8px 20px rgba(0,0,0,.25);
+}/* ===== VIDEO ===== */
+
+.video{
+    text-align:center;
+    margin-top:40px;
+}
+
+.video iframe{
+    width:100%;
+    max-width:900px;
+    height:500px;
+    border-radius:15px;
+}/* ===== FOOTER ===== */footer{
+    background:#003366;
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:30px;
+}
+picture{
+    width:100px;
+    max-height:400px;
+    object-fit:cover;
+    border-radius:15px;
+    box-shadow:0px 5px 15px rgba(0,0,0,.3);
+}
+ a {
+    color: #cedad3;
+    text-decoration: none;
+     }
+
+a:hover {
+     color: #d5e4e0;
+}
+</style>
+</head>
+<body>
+
+<!-- ================= MENÚ ================= -->
+<nav>
+    <a href="index.html">Inicio</a>
+    <a href="sobremi.html">Sobre mí</a>
+    <a href="proyectos.html">Proyectos</a>
+    <a href="blog.html">Blog</a>
+    <a href="contactame.html">Contáctame</a>
+</nav>
+
+<!-- ================= ENCABEZADO ================= -->
+<header>
+    <h1>Mi Galería Personal</h1>
+    <p>Experiencias personales, académicas, laborales y momentos importantes de mi vida.</p>
+    <div class="portada">
+        <picture>
+            <!-- CAMBIAR IMAGEN PORTADA -->
+            <source srcset="imagen/num0.png" type="image/png">
+            <img src="imagen/num0.png" alt="Imagen de portada">
+        </picture>
+    </div>
+</header>
+
+<!-- ================= GALERIA ================= -->
+<section>
+    <h3>Galería de Fotos</h3>
+    
+    <!-- TABLA CON ANCHO FIJO Y MÁRGENES AJUSTADOS -->
+    <table style="width: 100%; table-layout: fixed; border-collapse: separate; border-spacing: 10px; margin: 0 auto;">
+        <!-- LÍNEA 1: FOTO 1, FOTO 2, FOTO 3 -->
+        <tr>
+            <td colspan="4" style="text-align: center; vertical-align: middle; padding: 5px;">
+                <img src="imagen/num1.png" alt="Fotografía Personal" style="width:100%; max-height:250px; object-fit:contain; border-radius:12px; transition:transform 0.4s ease, box-shadow 0.4s ease;" onmouseover="this.style.transform='scale(1.03)'; this.style.boxShadow='0px 8px 20px rgba(0,0,0,.25)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';">
+            </td>
+            <td colspan="4" style="text-align: center; vertical-align: middle; padding: 5px;">
+                <img src="imagen/num2.png" alt="Fotografía Familiar" style="width:100%; max-height:250px; object-fit:contain; border-radius:12px; transition:transform 0.4s ease, box-shadow 0.4s ease;" onmouseover="this.style.transform='scale(1.03)'; this.style.boxShadow='0px 8px 20px rgba(0,0,0,.25)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';">
+            </td>
+            <td colspan="4" style="text-align: center; vertical-align: middle; padding: 5px;">
+                <img src="imagen/num3.png" alt="Actividad Académica" style="width:100%; max-height:250px; object-fit:contain; border-radius:12px; transition:transform 0.4s ease, box-shadow 0.4s ease;" onmouseover="this.style.transform='scale(1.03)'; this.style.boxShadow='0px 8px 20px rgba(0,0,0,.25)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';">
+            </td>
+        </tr>
+        <!-- LÍNEA 2: FOTO 4 -->
+        <tr>
+            <td colspan="12" style="text-align: center; vertical-align: middle; padding: 5px;">
+                <img src="imagen/num4.png" alt="Experiencia Laboral" style="width:100%; max-height:350px; object-fit:contain; border-radius:12px; transition:transform 0.4s ease, box-shadow 0.4s ease;" onmouseover="this.style.transform='scale(1.02)'; this.style.boxShadow='0px 8px 20px rgba(0,0,0,.25)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';">
+            </td>
+        </tr>
+        <!-- LÍNEA 3: FOTO 5, FOTO 6, FOTO 7 -->
+        <tr>
+            <td colspan="3" style="text-align: center; vertical-align: middle; padding: 5px;">
+                <img src="imagen/num5.png" alt="Proyecto" style="width:100%; max-height:250px; object-fit:contain; border-radius:12px; transition:transform 0.4s ease, box-shadow 0.4s ease;" onmouseover="this.style.transform='scale(1.03)'; this.style.boxShadow='0px 8px 20px rgba(0,0,0,.25)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';">
+            </td>
+            <td colspan="6" style="text-align: center; vertical-align: middle; padding: 5px;">
+                <img src="imagen/num6.png" alt="Hobby" style="width:100%; max-height:250px; object-fit:contain; border-radius:12px; transition:transform 0.4s ease, box-shadow 0.4s ease;" onmouseover="this.style.transform='scale(1.03)'; this.style.boxShadow='0px 8px 20px rgba(0,0,0,.25)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';">
+            </td>
+            <td colspan="3" style="text-align: center; vertical-align: middle; padding: 5px;">
+                <img src="imagen/num7.png" alt="Deporte Favorito" style="width:100%; max-height:250px; object-fit:contain; border-radius:12px; transition:transform 0.4s ease, box-shadow 0.4s ease;" onmouseover="this.style.transform='scale(1.03)'; this.style.boxShadow='0px 8px 20px rgba(0,0,0,.25)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';">
+            </td>
+        </tr>
+        <!-- LÍNEA 4: FOTO 8, FOTO 9, FOTO 10 -->
+        <tr>
+            <td colspan="3" style="text-align: center; vertical-align: middle; padding: 5px;">
+                <img src="imagen/num8.png" alt="Voluntariado" style="width:100%; max-height:250px; object-fit:contain; border-radius:12px; transition:transform 0.4s ease, box-shadow 0.4s ease;" onmouseover="this.style.transform='scale(1.03)'; this.style.boxShadow='0px 8px 20px rgba(0,0,0,.25)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';">
+            </td>
+            <td colspan="3" style="text-align: center; vertical-align: middle; padding: 5px;">
+                <img src="imagen/num9.png" alt="Emprendimiento" style="width:100%; max-height:250px; object-fit:contain; border-radius:12px; transition:transform 0.4s ease, box-shadow 0.4s ease;" onmouseover="this.style.transform='scale(1.03)'; this.style.boxShadow='0px 8px 20px rgba(0,0,0,.25)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';">
+            </td>
+            <td colspan="6" style="text-align: center; vertical-align: middle; padding: 5px;">
+                <img src="imagen/num10.png" alt="Logro Académico" style="width:100%; max-height:250px; object-fit:contain; border-radius:12px; transition:transform 0.4s ease, box-shadow 0.4s ease;" onmouseover="this.style.transform='scale(1.03)'; this.style.boxShadow='0px 8px 20px rgba(0,0,0,.25)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';">
+            </td>
+        </tr>
+        <!-- FOTO 11 -->
+        <tr>
+            <td colspan="12" style="text-align: center; vertical-align: middle; padding: 5px;">
+                <img src="imagen/num11.png" alt="Evento Importante" style="width:100%; max-height:300px; object-fit:contain; border-radius:12px; transition:transform 0.4s ease, box-shadow 0.4s ease;" onmouseover="this.style.transform='scale(1.02)'; this.style.boxShadow='0px 8px 20px rgba(0,0,0,.25)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';">
+            </td>
+        </tr>
+    </table>
+</section>
+
+<section>
+    <h3>Viajes</h3>
+    <table style="width: 100%; table-layout: fixed; border-collapse: separate; border-spacing: 10px; margin: 0 auto;">
+        <tr>
+            <td colspan="4" style="text-align: center; vertical-align: middle; padding: 5px;">
+                <img src="imagen/imagen1.png" alt="Viaje 1" style="width:100%; max-height:250px; object-fit:contain; border-radius:12px; transition:transform 0.4s ease, box-shadow 0.4s ease;" onmouseover="this.style.transform='scale(1.03)'; this.style.boxShadow='0px 8px 20px rgba(0,0,0,.25)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';">
+            </td>
+            <td colspan="4" style="text-align: center; vertical-align: middle; padding: 5px;">
+                <img src="imagen/imagen2.png" alt="Viaje 2" style="width:100%; max-height:250px; object-fit:contain; border-radius:12px; transition:transform 0.4s ease, box-shadow 0.4s ease;" onmouseover="this.style.transform='scale(1.03)'; this.style.boxShadow='0px 8px 20px rgba(0,0,0,.25)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';">
+            </td>
+            <td colspan="4" style="text-align: center; vertical-align: middle; padding: 5px;">
+                <img src="imagen/imagen3.png" alt="Viaje 3" style="width:100%; max-height:250px; object-fit:contain; border-radius:12px; transition:transform 0.4s ease, box-shadow 0.4s ease;" onmouseover="this.style.transform='scale(1.03)'; this.style.boxShadow='0px 8px 20px rgba(0,0,0,.25)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4" style="text-align: center; vertical-align: middle; padding: 5px;">
+                <img src="imagen/imagen4.png" alt="Viaje 4" style="width:100%; max-height:250px; object-fit:contain; border-radius:12px; transition:transform 0.4s ease, box-shadow 0.4s ease;" onmouseover="this.style.transform='scale(1.03)'; this.style.boxShadow='0px 8px 20px rgba(0,0,0,.25)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';">
+            </td>
+            <td colspan="4" style="text-align: center; vertical-align: middle; padding: 5px;">
+                <img src="imagen/imagen5.png" alt="Viaje 5" style="width:100%; max-height:250px; object-fit:contain; border-radius:12px; transition:transform 0.4s ease, box-shadow 0.4s ease;" onmouseover="this.style.transform='scale(1.03)'; this.style.boxShadow='0px 8px 20px rgba(0,0,0,.25)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';">
+            </td>
+            <td colspan="4" style="text-align: center; vertical-align: middle; padding: 5px;">
+                <img src="imagen/imagen6.png" alt="Viaje 6" style="width:100%; max-height:250px; object-fit:contain; border-radius:12px; transition:transform 0.4s ease, box-shadow 0.4s ease;" onmouseover="this.style.transform='scale(1.03)'; this.style.boxShadow='0px 8px 20px rgba(0,0,0,.25)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';">
+            </td>
+        </tr>
+    </table>
+</section>
+
+<!-- ================= VIDEO ================= -->
+<section class="video">
+    <h2>Video de Presentación</h2>
+    <p>Graba tu pantalla mostrando el funcionamiento de la página y sube el video a YouTube.</p>
+    <br>
+    <!-- REEMPLAZAR EL ID DEL VIDEO -->
+    <iframe src="https://www.youtube.com/embed/nGiGZWp7jhg" title="Video de Presentación" allowfullscreen></iframe>
+</section>
+
+<!-- ================= AUDIO ================= -->
+<audio id="audio" autoplay loop>
+    <source src="audio/Bad Bunny, Chencho Corleone - Me Porto Bonito (Instrumental).mp3" type="audio/mpeg">
+</audio>
+
+<script>
+window.addEventListener("load", function(){
+    const audio = document.getElementById("audio");
+    audio.play().catch(function(){
+        console.log("El navegador bloqueó el autoplay.");
+    });
+});
+</script>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+    <h3>Juan Ricardo Mejía Jiménez</h3>
+    <p>Arquitectura de Plataformas y Servicios de Tecnologías de la Información</p>
+    <p>Instituto República Federal de Alemania</p>
+      <a href="index.html">
+        <i class="fa-solid fa-house"></i> Volver al inicio
+    </a>
+</footer>
+
+</body>
+</html>
